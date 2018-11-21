@@ -1,0 +1,22 @@
+<% include ../partials/header %>
+<h4>PowerGlasses:</h4>
+<hr>
+<div class="container">
+   <div class="row ">  <!-- no-gutters ->for no padding between cols -->
+      <% foundGlasses.forEach(function(powerGlass){ %>
+          <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+              <div class="card">
+                 <img id="imagecard" class="card-img-top img-fluid " src="<%=powerGlass.image%>" alt="<%=powerGlass.name%>"></p>
+                <div class="card-body">
+                  <!-- <hr> -->
+                  <h5 class="card-title "><strong>Name</strong>:<%=powerGlass.name%></h5>   <!-- (text-left, text-right)-->
+                  <h5 class="card-text "><strong>Price</strong>:Rs,<%=powerGlass.price%></h5>
+                  <a href="/powerglass/<%=powerGlass._id %>" class="btn btn-primary btn-block">moreInfo</a>
+              </div>
+              </div>
+          </div>
+      <% }); %>
+  </div>
+</div>
+<% include ../partials/footer%>
+ 

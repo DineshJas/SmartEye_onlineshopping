@@ -1,0 +1,23 @@
+<% include ../partials/header %>
+<div class="row">
+  <div class="col-md-9">
+    <div class="card">
+        <!-- <div class="wrapper">  -->
+          <img class="card-img-top  " src="<%=foundGlass.image%>" alt="foundGlass.name">
+        <!-- </div>  -->
+      <div class="card-body">
+        <!-- <hr> -->
+         <h5 class="card-title "><strong>Name</strong>:<%=foundGlass.name%></h5>   <!-- (text-left, text-right)-->
+         <h5 class="card-text "><strong>Price</strong>:Rs,<%=foundGlass.price%></h5>
+         <h5 class="card-text" ><strong>Description:</strong><%= foundGlass.description %></h5>
+         <% if(CurrentUser && CurrentUser.isAdmin) { %>
+             <a href="/powerglass/<%=foundGlass._id%>/edit" class="btn btn-xs btn-primary">Edit</a>
+             <form id="delete" action="/powerglass/<%=foundGlass._id%>?_method=DELETE" method="POST">
+                 <button class="btn btn-xs btn-danger">Delete</button>
+             </form>
+         <% } %>
+      </div>
+  </div>
+</div>
+
+<% include ../partials/footer%>

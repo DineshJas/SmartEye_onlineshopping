@@ -1,0 +1,8 @@
+.chumma{
+   margin-top: 90px;
+}
+#imagecard.card-img-top {
+    width: 100%;
+    height: 15vw;
+    object-fit:fill;
+}

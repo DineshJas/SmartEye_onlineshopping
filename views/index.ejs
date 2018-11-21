@@ -1,0 +1,53 @@
+<% include ./partials/header %>
+<% if(CurrentUser && CurrentUser.isAdmin) { %>
+<div class="container " style='margin-top: 70px'> 
+	 <h4>Welcome Admin</h4>
+	 <a class="btn btn-secondary btn-lg btn-block" href="/add" role="button" style="width: 25%" ><i class="fa fa-plus"></i>Add</a>
+</div>
+ <hr>	
+<% }%>
+ 
+<h4>PowerGlasses:</h4>
+<hr>
+<div class="container">
+   <div class="row ">  <!-- no-gutters ->for no padding between cols -->
+      <% PowerGlasses.forEach(function(powerGlass){ %>
+          <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+              <div class="card">
+                 <img id="imagecard" class="card-img-top img-fluid " src="<%=powerGlass.image%>" alt="<%=powerGlass.name%>"></p>
+                <div class="card-body">
+                  <!-- <hr> -->
+                  <h5 class="card-title "><strong>Name</strong>:<%=powerGlass.name%></h5>   <!-- (text-left, text-right)-->
+                  <h5 class="card-text "><strong>Price</strong>:Rs,<%=powerGlass.price%></h5>
+                  <a href="/powerglass/<%=powerGlass._id %>" class="btn btn-primary btn-block">moreInfo</a>
+                </div>
+              </div>
+          </div>
+      <% }); %>
+  </div>
+  <div class="text-center"><a href="/powerglass" class="btn btn-primary btn-xs btn-center">morePowerGlasses</a></div>
+</div>
+<hr>
+<h4>SunGlasses:</h4>
+<!-- <h4><%=SunGlasses%></h4> -->
+<br>
+<div class="container">
+   <div class="row ">  <!-- no-gutters ->for no padding between cols -->
+      <% SunGlasses.forEach(function(sunGlass){ %>
+          <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+              <div class="card">
+                 <img id="imagecard" class="card-img-top img-fluid " src="<%=sunGlass.image%>" alt="<%=sunGlass.name%>"></p>
+                <div class="card-body">
+                  <!-- <hr> -->
+                  <h5 class="card-title "><strong>Name</strong>:<%=sunGlass.name%></h5>   <!-- (text-left, text-right)-->
+                  <h5 class="card-text "><strong>Price</strong>:Rs,<%=sunGlass.price%></h5>
+                  <a href="/sunglass/<%=sunGlass._id %>" class="btn btn-primary btn-block">moreInfo</a>
+                </div>
+              </div>
+          </div>
+      <% }); %>
+  </div>
+  <div class="text-center"><a href="/sunglass" class="btn btn-primary btn-xs btn-center">moreSunGlasses</a></div>
+</div>
+
+<% include ./partials/footer%>
